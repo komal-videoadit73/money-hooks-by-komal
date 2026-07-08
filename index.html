@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Hooks by Komal — Smart Money Saving for Kids & Adults</title>
+<meta name="description" content="Money Hooks by Komal teaches kids, students, families and adults simple, smart money-saving habits through short educational videos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --sea-deepest:#050f1e;
+  --sea-deep:#0a1c33;
+  --sea-mid:#0f2c4c;
+  --sea-light:#153a63;
+  --purple:#7c4dff;
+  --purple-soft:#9d6bff;
+  --purple-deep:#3d2166;
+  --gold:#d4af37;
+  --gold-light:#f3d576;
+  --gold-dim:#a4832a;
+  --white:#f5f8fc;
+  --white-dim:rgba(245,248,252,0.72);
+  --white-faint:rgba(245,248,252,0.48);
+  --glass-bg:rgba(255,255,255,0.055);
+  --glass-bg-strong:rgba(255,255,255,0.09);
+  --glass-border:rgba(255,255,255,0.14);
+  --font-display:'Fraunces', serif;
+  --font-body:'Manrope', sans-serif;
+  --ease:cubic-bezier(.16,.84,.44,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:
+    radial-gradient(ellipse 80% 50% at 15% -10%, rgba(124,77,255,0.20), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 100% 0%, rgba(212,175,55,0.10), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(124,77,255,0.12), transparent 60%),
+    linear-gradient(180deg, var(--sea-deepest) 0%, var(--sea-deep) 30%, var(--sea-mid) 65%, var(--sea-deep) 100%);
+  background-attachment:fixed;
+  color:var(--white);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+::selection{background:var(--gold); color:var(--sea-deepest);}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:var(--sea-deepest);}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--purple),var(--gold)); border-radius:10px;}
+
+img,svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer;}
+.container{max-width:1240px; margin:0 auto; padding:0 32px;}
+@media(max-width:640px){.container{padding:0 20px;}}
+
+/* ============ UTILITY / SHARED ============ */
+.eyebrow{
+  font-family:var(--font-body);
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:'';
+  width:22px; height:1.5px;
+  background:linear-gradient(90deg, var(--gold), transparent);
+}
+.section-head{
+  max-width:680px;
+  margin:0 auto 64px;
+  text-align:center;
+}
+.section-head h2{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(30px,4.2vw,48px);
+  letter-spacing:-0.01em;
+  margin:16px 0 14px;
+  background:linear-gradient(100deg, #fff 30%, var(--gold-light) 65%, var(--purple-soft) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section-head p{color:var(--white-dim); font-size:16.5px; font-weight:400;}
+section{position:relative; padding:120px 0;}
+@media(max-width:768px){section{padding:80px 0;} .section-head{margin-bottom:44px;}}
+
+.glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(22px) saturate(140%);
+  -webkit-backdrop-filter:blur(22px) saturate(140%);
+  border:1px solid var(--glass-border);
+  border-radius:22px;
+  box-shadow:0 20px 60px -25px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  padding:15px 30px;
+  border-radius:100px;
+  font-weight:700;
+  font-size:14.5px;
+  letter-spacing:.01em;
+  border:1px solid transparent;
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease), background .3s ease, border-color .3s ease;
+  white-space:nowrap;
+}
+.btn svg{width:17px; height:17px;}
+.btn-gold{
+  background:linear-gradient(120deg, var(--gold-light), var(--gold) 55%, var(--gold-dim));
+  color:#1a1206;
+  box-shadow:0 10px 30px -8px rgba(212,175,55,0.55);
+}
+.btn-gold:hover{transform:translateY(-3px); box-shadow:0 16px 40px -8px rgba(212,175,55,0.7);}
+.btn-purple{
+  background:linear-gradient(120deg, var(--purple-soft), var(--purple) 70%);
+  color:#fff;
+  box-shadow:0 10px 30px -8px rgba(124,77,255,0.5);
+}
+.btn-purple:hover{transform:translateY(-3px); box-shadow:0 16px 40px -8px rgba(124,77,255,0.65);}
+.btn-ghost{
+  background:var(--glass-bg-strong);
+  border-color:var(--glass-border);
+  color:var(--white);
+  backdrop-filter:blur(10px);
+}
+.btn-ghost:hover{transform:translateY(-3px); border-color:rgba(212,175,55,0.5); background:rgba(255,255,255,0.12);}
+
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.reveal.in{opacity:1; transform:translateY(0);}
+.reveal-stagger > *{opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal-stagger.in > *{opacity:1; transform:translateY(0);}
+.reveal-stagger.in > *:nth-child(1){transition-delay:.05s}
+.reveal-stagger.in > *:nth-child(2){transition-delay:.13s}
+.reveal-stagger.in > *:nth-child(3){transition-delay:.21s}
+.reveal-stagger.in > *:nth-child(4){transition-delay:.29s}
+.reveal-stagger.in > *:nth-child(5){transition-delay:.37s}
+.reveal-stagger.in > *:nth-child(6){transition-delay:.45s}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+}
+
+/* ============ NAV ============ */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  padding:18px 0;
+  transition:padding .4s var(--ease), background .4s ease, box-shadow .4s ease;
+}
+header.scrolled{
+  padding:11px 0;
+  background:rgba(7,17,31,0.72);
+  backdrop-filter:blur(18px) saturate(140%);
+  box-shadow:0 8px 30px -12px rgba(0,0,0,0.5);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+nav{display:flex; align-items:center; justify-content:space-between;}
+.logo{display:flex; align-items:center; gap:11px; font-family:var(--font-display); font-size:20px; font-weight:600;}
+.logo-mark{
+  width:38px; height:38px; border-radius:11px;
+  background:linear-gradient(135deg, var(--purple), var(--gold));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 20px -6px rgba(124,77,255,0.6);
+  flex-shrink:0;
+}
+.logo-mark svg{width:20px; height:20px; color:#fff;}
+.logo span{background:linear-gradient(100deg,#fff, var(--gold-light)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;}
+.nav-links{display:flex; align-items:center; gap:38px; list-style:none;}
+.nav-links a{font-size:14.5px; font-weight:600; color:var(--white-dim); transition:color .3s ease; position:relative;}
+.nav-links a::after{content:'';position:absolute; left:0; bottom:-6px; width:0; height:1.5px; background:var(--gold); transition:width .35s var(--ease);}
+.nav-links a:hover{color:#fff;}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{display:flex; align-items:center; gap:14px;}
+.nav-cta .btn{padding:11px 22px; font-size:13.5px;}
+.burger{display:none; width:26px; height:20px; position:relative; flex-direction:column; justify-content:space-between; background:none; border:none;}
+.burger span{display:block; height:2px; width:100%; background:#fff; border-radius:2px; transition:.35s var(--ease);}
+.mobile-menu{
+  position:fixed; inset:0; z-index:199;
+  background:rgba(6,15,28,0.97);
+  backdrop-filter:blur(20px);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;
+  transform:translateY(-100%); opacity:0;
+  transition:transform .5s var(--ease), opacity .4s ease;
+}
+.mobile-menu.open{transform:translateY(0); opacity:1;}
+.mobile-menu a{font-family:var(--font-display); font-size:26px; font-weight:500;}
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .nav-cta .btn-ghost, .nav-cta .btn-purple{display:none;}
+  .burger{display:flex;}
+}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;
+  display:flex; align-items:center;
+  position:relative;
+  padding-top:120px;
+  overflow:hidden;
+}
+.hero-bg-orb{
+  position:absolute; border-radius:50%; filter:blur(90px); opacity:.55; pointer-events:none;
+  animation:float 14s ease-in-out infinite;
+}
+.orb1{width:480px; height:480px; background:radial-gradient(circle, var(--purple), transparent 70%); top:-120px; left:-140px;}
+.orb2{width:420px; height:420px; background:radial-gradient(circle, var(--gold), transparent 70%); top:40%; right:-160px; animation-delay:-5s;}
+.orb3{width:360px; height:360px; background:radial-gradient(circle, var(--purple-soft), transparent 70%); bottom:-140px; left:35%; animation-delay:-9s;}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(30px,-40px) scale(1.08);}}
+
+.coin{position:absolute; border-radius:50%; background:linear-gradient(135deg,var(--gold-light),var(--gold-dim)); box-shadow:0 8px 20px -6px rgba(212,175,55,0.6), inset 0 2px 4px rgba(255,255,255,0.5); opacity:.85;}
+.coin::after{content:'$'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; color:rgba(26,18,6,0.55); font-size:.55em;}
+.c1{width:34px; height:34px; top:22%; left:8%; animation:drift 9s ease-in-out infinite;}
+.c2{width:22px; height:22px; top:65%; left:14%; animation:drift 11s ease-in-out infinite 1s;}
+.c3{width:28px; height:28px; top:16%; right:12%; animation:drift 10s ease-in-out infinite 2s;}
+.c4{width:18px; height:18px; top:75%; right:18%; animation:drift 8s ease-in-out infinite .5s;}
+.c5{width:24px; height:24px; top:45%; right:6%; animation:drift 12s ease-in-out infinite 3s;}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-26px) rotate(180deg);}}
+@media(max-width:768px){.coin{display:none;}}
+
+.hero-inner{position:relative; z-index:2; text-align:center; max-width:880px; margin:0 auto; padding:0 24px;}
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 20px; border-radius:100px;
+  font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--gold-light); margin-bottom:28px;
+  opacity:0; animation:fadeUp .8s var(--ease) .1s forwards;
+}
+.hero-eyebrow svg{width:14px; height:14px;}
+.hero h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(42px, 7.5vw, 84px);
+  line-height:1.03;
+  letter-spacing:-0.02em;
+  margin-bottom:22px;
+}
+.hero h1 .line{display:block; overflow:hidden;}
+.hero h1 .line span{display:block; opacity:0; transform:translateY(110%); animation:fadeUp .9s var(--ease) forwards;}
+.hero h1 .line:nth-child(1) span{animation-delay:.25s;}
+.hero h1 .line:nth-child(2) span{
+  animation-delay:.4s;
+  background:linear-gradient(100deg, var(--gold-light) 10%, var(--gold) 40%, var(--purple-soft) 75%, var(--purple) 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  position:relative;
+}
+.hook-underline{
+  position:relative; display:inline-block;
+}
+.hook-underline svg{
+  position:absolute; left:2%; bottom:-14px; width:96%; height:22px;
+  overflow:visible;
+}
+.hook-underline path{
+  stroke-dasharray:400; stroke-dashoffset:400;
+  animation:draw 1.4s var(--ease) 1.3s forwards;
+}
+@keyframes draw{to{stroke-dashoffset:0;}}
+@keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
+
+.hero-tagline{
+  font-size:clamp(17px,2vw,21px);
+  font-weight:600;
+  color:var(--white);
+  margin-bottom:18px;
+  opacity:0; animation:fadeUp .8s var(--ease) .55s forwards;
+}
+.hero-intro{
+  color:var(--white-dim); font-size:16px; max-width:600px; margin:0 auto 42px;
+  opacity:0; animation:fadeUp .8s var(--ease) .68s forwards;
+}
+.hero-btns{
+  display:flex; flex-wrap:wrap; gap:16px; justify-content:center;
+  opacity:0; animation:fadeUp .8s var(--ease) .82s forwards;
+}
+@media(max-width:560px){.hero-btns{flex-direction:column; align-items:stretch;} .hero-btns .btn{width:100%;}}
+
+.scroll-cue{
+  position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  color:var(--white-faint); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  opacity:0; animation:fadeUp .8s var(--ease) 1.1s forwards;
+}
+.scroll-cue .dot-line{width:1px; height:34px; background:linear-gradient(var(--gold), transparent); position:relative; overflow:hidden;}
+.scroll-cue .dot-line::after{content:''; position:absolute; top:-20px; left:0; width:100%; height:20px; background:var(--gold-light); animation:scrolldown 2s ease-in-out infinite;}
+@keyframes scrolldown{0%{top:-20px;} 100%{top:34px;}}
+
+/* ============ ABOUT ============ */
+.about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; align-items:center;}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr; gap:44px;}}
+.about-portrait{position:relative; display:flex; justify-content:center;}
+.portrait-ring{
+  width:min(360px,80vw); aspect-ratio:1; border-radius:50%;
+  background:conic-gradient(from 220deg, var(--purple), var(--gold), var(--purple-soft), var(--purple));
+  padding:6px;
+  animation:spin 16s linear infinite;
+  display:flex; align-items:center; justify-content:center;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.portrait-inner{
+  width:100%; height:100%; border-radius:50%;
+  background:linear-gradient(160deg, var(--sea-light), var(--sea-deep));
+  display:flex; align-items:center; justify-content:center;
+  animation:spin-rev 16s linear infinite;
+  border:1px solid var(--glass-border);
+}
+@keyframes spin-rev{to{transform:rotate(-360deg);}}
+.portrait-inner span{
+  font-family:var(--font-display); font-weight:600; font-size:clamp(70px,12vw,110px);
+  background:linear-gradient(160deg, var(--gold-light), var(--purple-soft));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.badge-float{
+  position:absolute; bottom:6%; right:2%;
+  padding:14px 20px; border-radius:16px;
+  display:flex; align-items:center; gap:10px;
+}
+.badge-float svg{width:22px; height:22px; color:var(--gold-light); flex-shrink:0;}
+.badge-float .num{font-family:var(--font-display); font-weight:700; font-size:20px; color:#fff; line-height:1;}
+.badge-float .lbl{font-size:11px; color:var(--white-faint); text-transform:uppercase; letter-spacing:.08em;}
+
+.about-copy .eyebrow{margin-bottom:16px;}
+.about-copy h2{
+  font-family:var(--font-display); font-weight:600; font-size:clamp(30px,4vw,44px);
+  line-height:1.12; margin-bottom:20px;
+  background:linear-gradient(100deg,#fff 40%, var(--gold-light));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.about-copy p{color:var(--white-dim); margin-bottom:16px; font-size:15.5px;}
+.about-copy strong{color:var(--gold-light); font-weight:700;}
+.about-stats{display:flex; gap:34px; margin-top:32px; flex-wrap:wrap;}
+.about-stats div b{display:block; font-family:var(--font-display); font-size:30px; font-weight:600; color:#fff;}
+.about-stats div span{font-size:12px; color:var(--white-faint); text-transform:uppercase; letter-spacing:.08em;}
+
+/* ============ FEATURES ============ */
+.feat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+@media(max-width:900px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.feat-grid{grid-template-columns:1fr;}}
+.feat-card{
+  padding:36px 28px;
+  transition:transform .5s var(--ease), border-color .5s ease, background .5s ease;
+  position:relative; overflow:hidden;
+}
+.feat-card::before{
+  content:''; position:absolute; inset:0; border-radius:22px; padding:1px;
+  background:linear-gradient(135deg, transparent, transparent);
+  opacity:0; transition:opacity .5s ease;
+}
+.feat-card:hover{transform:translateY(-8px); border-color:rgba(212,175,55,0.4); background:var(--glass-bg-strong);}
+.feat-icon{
+  width:54px; height:54px; border-radius:15px; margin-bottom:22px;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg, rgba(124,77,255,0.35), rgba(212,175,55,0.28));
+  border:1px solid var(--glass-border);
+}
+.feat-icon svg{width:26px; height:26px; color:var(--gold-light);}
+.feat-card h3{font-family:var(--font-display); font-weight:600; font-size:20px; margin-bottom:10px;}
+.feat-card p{color:var(--white-dim); font-size:14.5px;}
+
+/* ============ VIDEO LIBRARY ============ */
+.video-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+@media(max-width:900px){.video-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.video-grid{grid-template-columns:1fr;}}
+.video-card{overflow:hidden; transition:transform .5s var(--ease), border-color .4s ease;}
+.video-card:hover{transform:translateY(-6px); border-color:rgba(212,175,55,0.35);}
+.thumb{
+  position:relative; aspect-ratio:16/10; border-radius:22px 22px 0 0; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.thumb .duration{
+  position:absolute; bottom:10px; right:10px; padding:4px 9px; border-radius:6px;
+  background:rgba(0,0,0,0.55); font-size:11.5px; font-weight:700; letter-spacing:.03em;
+  backdrop-filter:blur(4px);
+}
+.play-btn{
+  width:60px; height:60px; border-radius:50%; border:none;
+  background:rgba(255,255,255,0.16); backdrop-filter:blur(6px);
+  border:1.5px solid rgba(255,255,255,0.5);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .4s var(--ease), background .4s ease;
+  z-index:3;
+}
+.play-btn svg{width:22px; height:22px; color:#fff; margin-left:3px;}
+.thumb:hover .play-btn{transform:scale(1.14); background:var(--gold);}
+.thumb:hover .play-btn svg{color:#1a1206;}
+.thumb-tag{position:absolute; top:10px; left:10px; padding:4px 10px; border-radius:100px; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; background:rgba(255,255,255,0.14); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,0.2);}
+.vc-body{padding:22px 22px 26px;}
+.vc-body h3{font-family:var(--font-display); font-weight:600; font-size:18px; margin-bottom:8px;}
+.vc-body p{color:var(--white-dim); font-size:13.5px; line-height:1.55;}
+
+/* gradient thumb palettes */
+.g1{background:linear-gradient(135deg,#4a2a7a,#7c4dff 60%,#d4af37);}
+.g2{background:linear-gradient(135deg,#0f2c4c,#7c4dff 55%,#f3d576);}
+.g3{background:linear-gradient(140deg,#3d2166,#153a63 50%,#d4af37);}
+.g4{background:linear-gradient(120deg,#a4832a,#7c4dff 65%,#0a1c33);}
+.g5{background:linear-gradient(150deg,#153a63,#9d6bff 60%,#f3d576);}
+.g6{background:linear-gradient(130deg,#7c4dff,#0f2c4c 55%,#d4af37);}
+.thumb svg.deco{position:absolute; opacity:.22; width:120px; height:120px; color:#fff;}
+
+/* ============ SHORTS ============ */
+.shorts-scroll{
+  display:flex; gap:22px; overflow-x:auto; padding:8px 4px 20px;
+  scroll-snap-type:x mandatory;
+}
+.shorts-scroll::-webkit-scrollbar{height:8px;}
+.short-card{
+  flex:0 0 220px; scroll-snap-align:start;
+  aspect-ratio:9/16; border-radius:20px; position:relative; overflow:hidden;
+  display:flex; align-items:flex-end;
+  transition:transform .5s var(--ease);
+  cursor:pointer;
+}
+.short-card:hover{transform:translateY(-8px) scale(1.02);}
+.short-card .overlay{
+  position:relative; z-index:2; width:100%; padding:18px 16px;
+  background:linear-gradient(0deg, rgba(0,0,0,0.75), transparent 70%);
+}
+.short-card .overlay h4{font-family:var(--font-display); font-size:16px; font-weight:600; margin-bottom:4px;}
+.short-card .overlay span{font-size:11.5px; color:var(--white-faint);}
+.short-play{
+  position:absolute; top:16px; right:16px; z-index:2;
+  width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,0.18);
+  backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,0.4);
+  display:flex; align-items:center; justify-content:center;
+}
+.short-play svg{width:15px; height:15px; color:#fff; margin-left:2px;}
+@media(max-width:560px){.short-card{flex:0 0 170px;}}
+
+/* ============ PORTFOLIO ============ */
+.portfolio-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.portfolio-grid{grid-template-columns:1fr;}}
+.pf-card{padding:0; overflow:hidden; transition:transform .5s var(--ease);}
+.pf-card:hover{transform:translateY(-8px);}
+.pf-top{aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; position:relative;}
+.pf-top svg{width:52px; height:52px; color:rgba(255,255,255,0.85);}
+.pf-body{padding:24px;}
+.pf-body .cat{font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--gold-light); font-weight:700;}
+.pf-body h3{font-family:var(--font-display); font-size:19px; font-weight:600; margin:8px 0 8px;}
+.pf-body p{font-size:13.5px; color:var(--white-dim);}
+
+/* ============ TESTIMONIALS ============ */
+.test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+@media(max-width:860px){.test-grid{grid-template-columns:1fr; max-width:520px; margin:0 auto;}}
+.test-card{padding:32px 28px;}
+.stars{display:flex; gap:4px; margin-bottom:18px;}
+.stars svg{width:16px; height:16px; color:var(--gold);}
+.test-card p{font-size:14.5px; color:var(--white-dim); margin-bottom:24px; font-style:italic; line-height:1.7;}
+.test-person{display:flex; align-items:center; gap:12px;}
+.test-avatar{
+  width:44px; height:44px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-weight:700; font-size:16px; color:#1a1206;
+  background:linear-gradient(135deg, var(--gold-light), var(--purple-soft));
+}
+.test-person b{display:block; font-size:14px;}
+.test-person span{font-size:12px; color:var(--white-faint);}
+
+/* ============ FAQ ============ */
+.faq-list{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:14px;}
+.faq-item{overflow:hidden;}
+.faq-q{
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  padding:22px 26px; background:none; border:none; color:#fff;
+  font-family:var(--font-body); font-weight:700; font-size:15.5px; text-align:left;
+}
+.faq-q svg{width:19px; height:19px; color:var(--gold-light); flex-shrink:0; transition:transform .4s var(--ease);}
+.faq-item.open .faq-q svg{transform:rotate(45deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .5s var(--ease);}
+.faq-a p{padding:0 26px 24px; color:var(--white-dim); font-size:14.5px; line-height:1.65;}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid; grid-template-columns:1fr 1.1fr; gap:44px;}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+.contact-info{padding:40px 34px; display:flex; flex-direction:column; justify-content:space-between; gap:34px;}
+.contact-info h3{font-family:var(--font-display); font-size:26px; font-weight:600; margin-bottom:12px;}
+.contact-info > p{color:var(--white-dim); font-size:14.5px; margin-bottom:0;}
+.info-row{display:flex; align-items:center; gap:14px;}
+.info-row .ic{width:42px; height:42px; border-radius:12px; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.info-row .ic svg{width:19px; height:19px; color:var(--gold-light);}
+.info-row b{font-size:14px; display:block;}
+.info-row span{font-size:12.5px; color:var(--white-faint);}
+.whatsapp-btn{
+  display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+  padding:16px; border-radius:16px; font-weight:700; font-size:15px;
+  background:linear-gradient(120deg,#25D366,#1da851); color:#fff;
+  box-shadow:0 12px 30px -10px rgba(37,211,102,0.55);
+  transition:transform .4s var(--ease);
+}
+.whatsapp-btn:hover{transform:translateY(-3px);}
+.whatsapp-btn svg{width:20px; height:20px;}
+
+.contact-form{padding:40px 34px; display:flex; flex-direction:column; gap:18px;}
+.field{display:flex; flex-direction:column; gap:8px;}
+.field label{font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--white-faint);}
+.field input, .field textarea{
+  padding:15px 17px; border-radius:13px; border:1px solid var(--glass-border);
+  background:rgba(255,255,255,0.05); color:#fff; font-family:var(--font-body); font-size:14.5px;
+  transition:border-color .3s ease, background .3s ease;
+}
+.field input::placeholder, .field textarea::placeholder{color:var(--white-faint);}
+.field input:focus, .field textarea:focus{outline:none; border-color:var(--gold); background:rgba(255,255,255,0.08);}
+.field textarea{resize:vertical; min-height:120px;}
+.form-note{font-size:12px; color:var(--white-faint); text-align:center; margin-top:-4px;}
+.submit-btn{margin-top:6px;}
+
+/* ============ FOOTER ============ */
+footer{padding:60px 0 30px; border-top:1px solid var(--glass-border); position:relative;}
+.footer-top{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:34px; margin-bottom:44px;}
+.footer-brand p{color:var(--white-dim); font-size:13.5px; max-width:320px; margin-top:12px;}
+.footer-social{display:flex; gap:12px;}
+.footer-social a{
+  width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,0.06); border:1px solid var(--glass-border); transition:.4s var(--ease);
+}
+.footer-social a:hover{background:linear-gradient(135deg,var(--purple),var(--gold)); transform:translateY(-4px);}
+.footer-social svg{width:18px; height:18px;}
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  padding-top:26px; border-top:1px solid rgba(255,255,255,0.08);
+  font-size:12.5px; color:var(--white-faint);
+}
+.footer-bottom a{color:var(--white-faint); transition:color .3s ease;}
+.footer-bottom a:hover{color:var(--gold-light);}
+.footer-links{display:flex; gap:22px;}
+
+/* ============ VIDEO MODAL ============ */
+.modal-overlay{
+  position:fixed; inset:0; z-index:500; background:rgba(3,8,16,0.9);
+  backdrop-filter:blur(10px);
+  display:flex; align-items:center; justify-content:center; padding:24px;
+  opacity:0; pointer-events:none; transition:opacity .4s ease;
+}
+.modal-overlay.open{opacity:1; pointer-events:auto;}
+.modal-box{width:100%; max-width:920px; border-radius:20px; overflow:hidden; position:relative; transform:scale(.92); transition:transform .4s var(--ease); background:#000; border:1px solid var(--glass-border);}
+.modal-overlay.open .modal-box{transform:scale(1);}
+.modal-box video{width:100%; display:block; max-height:78vh; background:#000;}
+.modal-frame{position:relative; width:100%; aspect-ratio:16/9; background:#000;}
+.modal-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+.modal-loading{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  color:var(--white-faint); font-size:13px; letter-spacing:.06em; text-transform:uppercase;
+  gap:10px;
+}
+.modal-loading .spin{
+  width:18px; height:18px; border-radius:50%; border:2px solid rgba(255,255,255,0.2); border-top-color:var(--gold);
+  animation:spinner .8s linear infinite;
+}
+@keyframes spinner{to{transform:rotate(360deg);}}
+.modal-close{
+  position:absolute; top:-16px; right:-16px; width:40px; height:40px; border-radius:50%;
+  background:linear-gradient(135deg,var(--purple),var(--gold)); border:none;
+  display:flex; align-items:center; justify-content:center; z-index:2;
+  box-shadow:0 8px 20px -6px rgba(0,0,0,0.6);
+}
+.modal-close svg{width:18px; height:18px; color:#fff;}
+.modal-title{padding:16px 22px; font-family:var(--font-display); font-weight:600; font-size:16px; background:rgba(255,255,255,0.03);}
+
+/* toast */
+.toast{
+  position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(30px);
+  padding:15px 26px; border-radius:100px; z-index:600;
+  background:linear-gradient(120deg,var(--gold-light),var(--gold));
+  color:#1a1206; font-weight:700; font-size:14px;
+  box-shadow:0 14px 34px -10px rgba(212,175,55,0.6);
+  opacity:0; transition:all .5s var(--ease); pointer-events:none;
+}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="container">
+    <nav>
+      <a href="#home" class="logo">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <span>Money Hooks</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#shorts">Shorts</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+        <a href="#videos" class="btn btn-purple">Watch Videos</a>
+        <button class="burger" id="burgerBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#features">Features</a>
+  <a href="#videos">Videos</a>
+  <a href="#shorts">Shorts</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg-orb orb1"></div>
+  <div class="hero-bg-orb orb2"></div>
+  <div class="hero-bg-orb orb3"></div>
+  <div class="coin c1"></div><div class="coin c2"></div><div class="coin c3"></div><div class="coin c4"></div><div class="coin c5"></div>
+
+  <div class="hero-inner">
+    <span class="hero-eyebrow glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2L12 16.4l-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg> Trusted Money Mentor for Families</span>
+    <h1>
+      <span class="line"><span>Money Hooks</span></span>
+      <span class="line"><span class="hook-underline">by Komal
+        <svg viewBox="0 0 300 22" preserveAspectRatio="none"><path d="M2 12 C 80 22, 220 22, 298 4" fill="none" stroke="url(#hookGrad)" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="hookGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#d4af37"/><stop offset="100%" stop-color="#7c4dff"/></linearGradient></defs></svg>
+      </span></span>
+    </h1>
+    <p class="hero-tagline">Smart Money Saving for Kids &amp; Adults</p>
+    <p class="hero-intro">I'm Komal — I turn everyday money decisions into short, simple videos so kids, students and families can build real saving habits without the boring lectures.</p>
+    <div class="hero-btns">
+      <a href="#videos" class="btn btn-gold"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Watch Videos</a>
+      <a href="#features" class="btn btn-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Learn Money Tips</a>
+      <a href="#contact" class="btn btn-ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Contact Me</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="dot-line"></span></div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-portrait reveal">
+        <div class="portrait-ring">
+          <div class="portrait-inner"><span>K</span></div>
+        </div>
+        <div class="badge-float glass">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2L12 16.4l-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg>
+          <div><div class="num">50K+</div><div class="lbl">Learners Reached</div></div>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <span class="eyebrow">About Komal</span>
+        <h2>The mentor behind every hook to smarter money</h2>
+        <p>Komal is the founder of <strong>Money Hooks</strong> — a personal brand built around one simple idea: money habits shouldn't feel complicated, and they definitely shouldn't feel boring.</p>
+        <p>Through short, punchy educational videos, Komal teaches <strong>kids, students, families and adults</strong> practical ways to save, budget and shop smarter — turning everyday decisions into lifelong habits.</p>
+        <p>No jargon. No lectures. Just simple "hooks" that make saving money click.</p>
+        <div class="about-stats">
+          <div><b>6+</b><span>Core Topics</span></div>
+          <div><b>100+</b><span>Videos &amp; Shorts</span></div>
+          <div><b>4.9★</b><span>Community Rating</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What I Teach</span>
+      <h2>Simple lessons that build real habits</h2>
+      <p>Six focused pillars covering everything from a child's first piggy bank to a family's full monthly budget.</p>
+    </div>
+    <div class="feat-grid reveal-stagger">
+      <div class="feat-card glass">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Money Saving Tips</h3>
+        <p>Bite-sized, practical tricks to save more every single week without feeling the pinch.</p>
+      </div>
+      <div class="feat-card glass">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+        <h3>Budget Planning</h3>
+        <p>Step-by-step frameworks to plan a monthly budget you'll actually stick to.</p>
+      </div>
+      <div class="feat-card glass">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <h3>Smart Shopping</h3>
+        <p>How to spot real value, avoid impulse traps, and shop with intention.</p>
+      </div>
+      <div class="feat-card glass">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Family Budget</h3>
+        <p>Getting the whole household aligned on saving goals, together.</p>
+      </div>
+      <div class="feat-card glass">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Kids Money Learning</h3>
+        <p>Fun, age-appropriate lessons that turn pocket money into a first real budget.</p>
+      </div>
+      <div class="feat-card glass">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Daily Saving Challenges</h3>
+        <p>Short, gamified challenges that make saving a habit instead of a chore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO LIBRARY ============ -->
+<section id="videos">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Video Library</span>
+      <h2>Watch &amp; learn, one hook at a time</h2>
+      <p>Premium short lessons on saving, budgeting and smart spending — tap play to watch with sound.</p>
+    </div>
+    <div class="video-grid reveal-stagger" id="videoGrid">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHORTS ============ -->
+<section id="shorts">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Shorts</span>
+      <h2>Quick hooks for on-the-go learning</h2>
+      <p>Fast, scroll-friendly money lessons in under 60 seconds.</p>
+    </div>
+    <div class="shorts-scroll" id="shortsScroll"></div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Educational finance projects</h2>
+      <p>A look at the campaigns, series and tools built under the Money Hooks brand.</p>
+    </div>
+    <div class="portfolio-grid reveal-stagger">
+      <div class="pf-card glass">
+        <div class="pf-top g1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+        <div class="pf-body"><span class="cat">Video Series</span><h3>30-Day Saving Sprint</h3><p>A month-long challenge series that helped families build a first savings cushion.</p></div>
+      </div>
+      <div class="pf-card glass">
+        <div class="pf-top g2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="pf-body"><span class="cat">Kids Program</span><h3>Little Savers Club</h3><p>An illustrated curriculum introducing kids aged 6–12 to their first piggy bank goals.</p></div>
+      </div>
+      <div class="pf-card glass">
+        <div class="pf-top g3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg></div>
+        <div class="pf-body"><span class="cat">Digital Tool</span><h3>Family Budget Planner</h3><p>A printable and digital planner used by 10,000+ households to track monthly goals.</p></div>
+      </div>
+      <div class="pf-card glass">
+        <div class="pf-top g4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <div class="pf-body"><span class="cat">Workshop</span><h3>Smart Shopper Sessions</h3><p>Live workshops teaching teens and adults how to compare, plan and shop with intention.</p></div>
+      </div>
+      <div class="pf-card glass">
+        <div class="pf-top g5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="pf-body"><span class="cat">Community</span><h3>Daily Hook Challenge</h3><p>A daily prompt series delivered to a growing community of saving-focused followers.</p></div>
+      </div>
+      <div class="pf-card glass">
+        <div class="pf-top g6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div class="pf-body"><span class="cat">Guide</span><h3>Adulting 101: Money Edition</h3><p>A first-budget guide built for students moving out and managing money independently.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Testimonials</span>
+      <h2>Loved by families and learners</h2>
+      <p>A few words from people who've picked up new saving habits with Money Hooks.</p>
+    </div>
+    <div class="test-grid reveal-stagger">
+      <div class="test-card glass">
+        <div class="stars">★★★★★</div>
+        <p>"My daughter actually asks to watch Komal's videos now. She started her own coin jar after the very first episode."</p>
+        <div class="test-person"><div class="test-avatar">A</div><div><b>Ayesha R.</b><span>Parent of two</span></div></div>
+      </div>
+      <div class="test-card glass">
+        <div class="stars">★★★★★</div>
+        <p>"The budget planning shorts are the easiest, most digestible money content I've come across as a student on a tight allowance."</p>
+        <div class="test-person"><div class="test-avatar">H</div><div><b>Hamza K.</b><span>University student</span></div></div>
+      </div>
+      <div class="test-card glass">
+        <div class="stars">★★★★★</div>
+        <p>"We used the Family Budget Planner for three months and finally have clarity on where our money actually goes."</p>
+        <div class="test-person"><div class="test-avatar">S</div><div><b>Sara M.</b><span>Working parent</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Good to know</h2>
+      <p>Answers to the questions I get asked most often.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item glass">
+        <button class="faq-q">Who are Money Hooks videos made for? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>Everyone from young kids just learning to save, to students, families and adults who want simple, practical money habits — no finance background required.</p></div>
+      </div>
+      <div class="faq-item glass">
+        <button class="faq-q">How long are the videos and shorts? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>Videos typically run 3–6 minutes, while shorts are under 60 seconds — designed to fit into a real, busy day.</p></div>
+      </div>
+      <div class="faq-item glass">
+        <button class="faq-q">Do I need any prior financial knowledge? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>Not at all. Every lesson starts from the basics and builds up gradually, using plain language instead of jargon.</p></div>
+      </div>
+      <div class="faq-item glass">
+        <button class="faq-q">Can schools or organizations book Komal? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>Yes — Komal runs workshops and talks for schools, universities and community groups. Reach out through the contact form below.</p></div>
+      </div>
+      <div class="faq-item glass">
+        <button class="faq-q">Where can I watch new content first? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><p>New videos and shorts are posted weekly — follow the social channels linked in the footer to get them as soon as they drop.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Let's start your saving journey</h2>
+      <p>Questions, collaborations, or workshop bookings — I'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-info glass">
+        <div>
+          <h3>Say hello</h3>
+          <p>Typically replies within 24–48 hours.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg></span><div><b>hello@moneyhooksbykomal.com</b><span>Email</span></div></div>
+          <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><div><b>+92 300 0000000</b><span>Phone</span></div></div>
+          <div class="info-row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><b>Peshawar, Pakistan</b><span>Location</span></div></div>
+        </div>
+        <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.02A7.94 7.94 0 0 0 20 12a7.9 7.9 0 0 0-2.4-5.68zm-5.55 12.2h-.02a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.58 6.58 0 0 1 5.61-10.1 6.6 6.6 0 0 1 6.6 6.61 6.6 6.6 0 0 1-6.6 6.58zm3.6-4.93c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.19-.5.64-.62.78-.11.13-.23.15-.42.05-.2-.1-.83-.3-1.58-.97-.58-.52-.98-1.16-1.1-1.35-.11-.2-.01-.3.09-.4.09-.1.2-.24.3-.36.1-.13.13-.2.2-.35.06-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38c-.13 0-.35.05-.53.24-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.4 2.15 3.4 3 .48.2.85.33 1.14.42.48.15.92.13 1.26.08.39-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.09-.18-.14-.38-.24z"/></svg> Chat on WhatsApp</a>
+      </div>
+      <form class="contact-form glass" id="contactForm">
+        <div class="field"><label for="cname">Name</label><input id="cname" name="name" type="text" placeholder="Your full name" required></div>
+        <div class="field"><label for="cemail">Email</label><input id="cemail" name="email" type="email" placeholder="you@example.com" required></div>
+        <div class="field"><label for="cmsg">Message</label><textarea id="cmsg" name="message" placeholder="Tell me what you'd like to talk about..." required></textarea></div>
+        <button type="submit" class="btn btn-gold submit-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg> Send Message</button>
+        <p class="form-note">This is a demo form — no data is actually sent.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <span>Money Hooks</span>
+        </a>
+        <p>Smart money saving for kids &amp; adults — one simple hook at a time.</p>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.5 7.5s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.3-1C16.4 4 12 4 12 4h0s-4.4 0-7.3.2c-.4 0-1.4.1-2.3 1-.7.7-.9 2.3-.9 2.3S1.3 9.4 1.3 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.1.2 7.1.2s4.4 0 7.3-.2c.4 0 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8z"/><path d="M9.8 14.6V8.8l5.5 2.9z" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Money Hooks by Komal. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="#home">Back to top</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ VIDEO MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div class="modal-frame" id="modalFrame">
+      <div class="modal-loading" id="modalLoading"><span class="spin"></span> Loading video…</div>
+    </div>
+    <div class="modal-title" id="modalTitle"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Message sent — thank you!</div>
+
+<script>
+lucide.createIcons();
+
+/* ---------- DATA ---------- */
+/* YouTube IDs below are freely-licensed Blender Foundation open films,
+   used purely as royalty-free placeholder footage until real videos are ready. */
+const videos = [
+  {t:"5 Habits That Save Rs. 5000/Month", d:"6:12", tag:"Saving Tips", g:"g1", desc:"Small daily swaps that quietly add up to serious monthly savings.", yt:"aqz-KE-bpKQ"},
+  {t:"Build Your First Family Budget", d:"8:45", tag:"Budgeting", g:"g2", desc:"A step-by-step walkthrough for planning income and expenses together.", yt:"eRsGyueVLvQ"},
+  {t:"Smart Shopping: Needs vs Wants", d:"4:30", tag:"Shopping", g:"g3", desc:"A simple filter to stop impulse buys before they happen.", yt:"TLkA0RELQ1g"},
+  {t:"Teaching Kids Their First Piggy Bank", d:"5:05", tag:"Kids", g:"g4", desc:"How to introduce saving concepts to children in a fun, visual way.", yt:"SkVqJ1SGeL0"},
+  {t:"The 7-Day Saving Challenge", d:"3:58", tag:"Challenge", g:"g5", desc:"A one-week challenge that kickstarts a lasting saving habit.", yt:"Man4Xw8Xypo"},
+  {t:"Adulting 101: Managing Your First Salary", d:"9:20", tag:"Adults", g:"g6", desc:"A practical framework for splitting your first paycheck wisely.", yt:"R6MlUcmOul8"},
+];
+
+const shorts = [
+  {t:"Save Money Daily", d:"0:42", g:"g1"},
+  {t:"Smart Shopping", d:"0:38", g:"g2"},
+  {t:"Budget Tips", d:"0:55", g:"g3"},
+  {t:"Money Habits", d:"0:47", g:"g4"},
+  {t:"Kids Saving Challenge", d:"0:50", g:"g5"},
+  {t:"Weekly Money Advice", d:"0:59", g:"g6"},
+];
+
+/* ---------- RENDER VIDEO CARDS ---------- */
+const videoGrid = document.getElementById('videoGrid');
+videoGrid.innerHTML = videos.map((v,i)=>`
+  <div class="video-card glass">
+    <div class="thumb ${v.g}" data-idx="${i}">
+      <span class="thumb-tag">${v.tag}</span>
+      <svg class="deco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2L12 16.4l-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg>
+      <button class="play-btn" data-idx="${i}" aria-label="Play video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+      <span class="duration">${v.d}</span>
+    </div>
+    <div class="vc-body">
+      <h3>${v.t}</h3>
+      <p>${v.desc}</p>
+    </div>
+  </div>
+`).join('');
+
+/* ---------- RENDER SHORTS ---------- */
+const shortsScroll = document.getElementById('shortsScroll');
+shortsScroll.innerHTML = shorts.map((s,i)=>`
+  <div class="short-card ${s.g}" data-idx="${i % videos.length}">
+    <span class="short-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+    <div class="overlay"><h4>${s.t}</h4><span>${s.d}</span></div>
+  </div>
+`).join('');
+
+/* ---------- VIDEO MODAL ---------- */
+const modalOverlay = document.getElementById('modalOverlay');
+const modalFrame = document.getElementById('modalFrame');
+const modalTitle = document.getElementById('modalTitle');
+const modalClose = document.getElementById('modalClose');
+
+function openVideo(idx){
+  const v = videos[idx];
+  modalTitle.textContent = v.t;
+  modalFrame.innerHTML = '<div class="modal-loading" id="modalLoading"><span class="spin"></span> Loading video…</div>';
+  modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // autoplay=1 + mute=0: unmuted autoplay is allowed here because the user just
+  // triggered it with a real click (a "user gesture"), which browsers require.
+  const src = `https://www.youtube.com/embed/${v.yt}?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`;
+  const iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.title = v.t;
+  iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; sound";
+  iframe.allowFullscreen = true;
+  iframe.addEventListener('load', ()=>{
+    const loader = document.getElementById('modalLoading');
+    if(loader) loader.remove();
+  });
+  modalFrame.appendChild(iframe);
+}
+function closeVideo(){
+  modalOverlay.classList.remove('open');
+  modalFrame.innerHTML = ''; // removing the iframe stops playback/sound
+  document.body.style.overflow = '';
+}
+document.addEventListener('click', (e)=>{
+  const trigger = e.target.closest('[data-idx]');
+  if(trigger && (trigger.closest('.thumb') || trigger.closest('.short-card'))){
+    openVideo(parseInt(trigger.getAttribute('data-idx')));
+  }
+});
+modalClose.addEventListener('click', closeVideo);
+modalOverlay.addEventListener('click', (e)=>{ if(e.target === modalOverlay) closeVideo(); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeVideo(); });
+
+/* ---------- HEADER SCROLL STATE ---------- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+/* ---------- MOBILE MENU ---------- */
+const burger = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', ()=>{
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>mobileMenu.classList.remove('open')));
+
+/* ---------- SCROLL REVEAL ---------- */
+const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+/* ---------- FAQ ACCORDION ---------- */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', ()=>{
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>{
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ---------- CONTACT FORM (demo) ---------- */
+const form = document.getElementById('contactForm');
+const toast = document.getElementById('toast');
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  toast.classList.add('show');
+  form.reset();
+  setTimeout(()=>toast.classList.remove('show'), 3200);
+});
+
+/* ---------- FOOTER YEAR ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
